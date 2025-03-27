@@ -1,0 +1,17 @@
+<mat-dialog-content>
+  <mat-card class="book">
+    <mat-card-header>
+      <div mat-card-avatar class="picture"></div>
+      <mat-card-title>Titre de l'ouvrage : <strong>{{book().title}}</strong></mat-card-title>
+      <mat-card-subtitle>Auteur de l'ouvrage: <strong>{{book().author}}</strong></mat-card-subtitle>
+      <mat-card-subtitle>Année de sortie: <strong>{{book().year}}</strong></mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{book().picture}} alt="couverture de livre" class="picture"/>
+    <mat-card-content>
+      <p>{{book().summary}}</p>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Fermer</button>
+</mat-dialog-actions>

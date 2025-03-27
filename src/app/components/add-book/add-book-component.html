@@ -1,0 +1,101 @@
+@if (isEditMode()) {
+<h1 mat-dialog-title>Modifier un Livre</h1>
+} @else {
+<h1 mat-dialog-title>Ajouter un Livre</h1>
+}
+
+<mat-dialog-content>
+  <form
+    (ngSubmit)="submit()"
+    [formGroup]="bookForm"
+    ngxsForm="createBookDialog.bookForm"
+    class="add-book-form"
+  >
+    <mat-form-field>
+      <mat-label>Titre</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Entrez le titre du livre"
+        formControlName="title"
+        class="input"
+        [errorStateMatcher]="matcher"
+      />
+      @if (bookForm.get('title')?.hasError('minlength')) {
+      <mat-error>Le titre doit avoir 2 lettres minimum</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Auteur</mat-label>
+      <input
+        type="text"
+        placeholder="Entrez l'auteur du livre"
+        matInput
+        formControlName="author"
+        class="input"
+        [errorStateMatcher]="matcher"
+      />
+      @if (bookForm.get('author')?.hasError('minlength')) {
+      <mat-error>Un auteur est requis</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Année</mat-label>
+      <input
+        type="number"
+        placeholder="Entrez l'année' du livre"
+        matInput
+        formControlName="year"
+        class="input"
+        [errorStateMatcher]="matcher"
+      />
+      @if (bookForm.get('year')?.hasError('pattern')) {
+      <mat-error>Mettre 4 chiffres</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Entrer l'url</mat-label>
+      <input
+        type="text"
+        placeholder="Entrez l'url' du livre"
+        matInput
+        formControlName="picture"
+        class="input"
+        [errorStateMatcher]="matcher"
+      />
+      @if (bookForm.get('picture')?.hasError('pattern')) {
+      <mat-error
+        >L'url doit etre de type (https?://.*.(?:png|jpg|jpeg))
+      </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Synopsis</mat-label>
+      <textarea
+        type="text"
+        placeholder="Entrez le synopsis du livre"
+        matInput
+        formControlName="summary"
+        class="input"
+        [errorStateMatcher]="matcher"
+      ></textarea>
+      @if (bookForm.get('summary')?.hasError('maxlength')) {
+      <mat-error>500 mots maximums</mat-error>
+      }
+    </mat-form-field>
+    <div class="action-buttons">
+      <button
+        class="validate-button"
+        type="submit"
+        [disabled]="isButtonDisabled()"
+        mat-flat-button
+      >
+        VALIDER
+      </button>
+      <button (click)="cancel()" type="button" mat-flat-button>ANNULER</button>
+    </div>
+  </form>
+</mat-dialog-content>

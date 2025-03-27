@@ -1,0 +1,84 @@
+{
+  "books": [
+    {
+      "id": "5",
+      "title": "Fondation",
+      "author": "Isaac Asimov",
+      "year": 1951,
+      "picture": "https://covers.openlibrary.org/b/id/5541632-L.jpg",
+      "summary": "L’histoire d’un scientifique qui tente de sauver l’humanité grâce à la psychohistoire."
+    },
+    {
+      "id": "6",
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "year": 1965,
+      "picture": "https://covers.openlibrary.org/b/id/12583966-L.jpg",
+      "summary": "Une planète désertique au cœur d’une lutte pour le pouvoir et une ressource précieuse."
+    },
+    {
+      "id": "7",
+      "title": "Les Robots",
+      "author": "Isaac Asimov",
+      "year": 1950,
+      "picture": "https://covers.openlibrary.org/b/id/8235261-L.jpg",
+      "summary": "Une collection de nouvelles qui posent les bases des lois de la robotique."
+    },
+    {
+      "id": "8",
+      "title": "Blade Runner",
+      "author": "Philip K. Dick",
+      "year": 1968,
+      "picture": "https://covers.openlibrary.org/b/id/11573400-L.jpg",
+      "summary": "Un chasseur de primes traque des androïdes fugitifs dans un monde post-apocalyptique."
+    },
+    {
+      "id": "9",
+      "title": "Hyperion",
+      "author": "Dan Simmons",
+      "year": 1989,
+      "picture": "https://covers.openlibrary.org/b/id/11658648-L.jpg",
+      "summary": "Un récit complexe entre science-fiction et poésie, avec des pèlerins en quête de réponses."
+    },
+    {
+      "id": "10",
+      "title": "Neuromancien",
+      "author": "William Gibson",
+      "year": 1984,
+      "picture": "https://covers.openlibrary.org/b/id/10252548-L.jpg",
+      "summary": "Un hacker du cyberespace engagé dans une mission qui va bouleverser son monde."
+    },
+    {
+      "id": "11",
+      "title": "L'Homme illustré",
+      "author": "Ray Bradbury",
+      "year": 1951,
+      "picture": "https://covers.openlibrary.org/b/id/12665236-L.jpg",
+      "summary": "Une collection de nouvelles interconnectées par un homme dont la peau est tatouée d’histoires mouvantes."
+    },
+    {
+      "id": "12",
+      "title": "Le Problème à trois corps",
+      "author": "Liu Cixin",
+      "year": 2008,
+      "picture": "https://covers.openlibrary.org/b/id/13052368-L.jpg",
+      "summary": "Un premier contact avec une civilisation extraterrestre change le destin de l’humanité."
+    },
+    {
+      "id": "13",
+      "title": "Solaris",
+      "author": "Stanisław Lem",
+      "year": 1961,
+      "picture": "https://covers.openlibrary.org/b/id/12465592-L.jpg",
+      "summary": "Une planète mystérieuse qui matérialise les pensées et les souvenirs des humains."
+    },
+    {
+      "id": "14",
+      "title": "Le cycle de Tschaï",
+      "author": "Jack Vance",
+      "year": 1968,
+      "picture": "https://covers.openlibrary.org/b/id/10238542-L.jpg",
+      "summary": "Un homme échoué sur une planète étrangère doit naviguer entre civilisations extraterrestres hostiles."
+    }
+  ]
+}
