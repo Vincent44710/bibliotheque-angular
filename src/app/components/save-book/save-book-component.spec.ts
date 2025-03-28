@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToastalertComponent } from './toastalert.component';
+import { SaveBookComponent } from './save-book-component';
 
-describe('ToastalertComponent', () => {
-  let component: ToastalertComponent;
-  let fixture: ComponentFixture<ToastalertComponent>;
+describe('AddBookComponent', () => {
+  let component: SaveBookComponent;
+  let fixture: ComponentFixture<SaveBookComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToastalertComponent]
+      imports: [SaveBookComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ToastalertComponent);
+    fixture = TestBed.createComponent(SaveBookComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

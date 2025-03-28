@@ -1,4 +1,4 @@
-export interface CreateBookStateModel {
+export interface SaveBookStateModel {
   bookForm: {
     model: {
       title: string;
@@ -12,7 +12,7 @@ export interface CreateBookStateModel {
   isEditMode: boolean;
 }
 
-export const defaultCreateBookState: CreateBookStateModel = {
+export const defaultSaveBookState: SaveBookStateModel = {
   bookForm: {
     model: {
       title: '',

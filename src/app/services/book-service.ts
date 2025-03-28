@@ -23,8 +23,7 @@ export class BookService {
 
   addBook(book: BookDto): Observable<BookDto> {
     //Ajoute un livre
-    const { id, ...bookWithoutId } = book;
-    return this.http.post<BookDto>(this.apiUrl, bookWithoutId);
+    return this.http.post<BookDto>(this.apiUrl, book);
   }
 
   editBook(book: BookDto): Observable<BookDto> {

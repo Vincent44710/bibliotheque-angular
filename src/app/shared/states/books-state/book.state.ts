@@ -5,6 +5,7 @@ import { Book } from './book.action';
 import { BookService } from '../../../services/book-service';
 import { tap } from 'rxjs';
 import { BookDto } from '../../dto/book.dtos';
+import { ToastrService } from 'ngx-toastr';
 
 @State<BookStateModel>({
   name: 'Book',
@@ -12,63 +13,101 @@ import { BookDto } from '../../dto/book.dtos';
 })
 @Injectable()
 export class BookState {
-  constructor(private bookService: BookService) {}
+  constructor(
+    private bookService: BookService,
+    private toastr: ToastrService
+  ) {}
 
-  @Action(Book.AllBooks)
-  getBooks({ patchState }: StateContext<BookStateModel>) {
+  @Action(Book.GetAll)
+  getBooks({ setState }: StateContext<BookStateModel>) {
     return this.bookService.getBooks().pipe(
       tap((books) => {
-        patchState({ books: books });
+        setState({ books });
       })
     );
   }
 
-  @Action(Book.AddBook)
+  @Action(Book.Add)
   addBook(
-    { getState, patchState }: StateContext<BookStateModel>,
-    { payload }: Book.AddBook
+    { getState, setState }: StateContext<BookStateModel>,
+    { payload }: Book.Add
   ) {
     return this.bookService.addBook(payload).pipe(
-      tap((newBook: BookDto) => {
-        const state = getState();
-
-        patchState({
-          books: [...state.books, newBook],
-        });
+      tap({
+        next: (newBook: BookDto) => {
+          const state = getState();
+          setState({
+            books: [...state.books, newBook],
+          });
+          this.toastr.success('Livre ajouté avec succès', 'Succès', {
+            closeButton: true,
+            positionClass: 'toast-top-right',
+          });
+        },
+        error: () => {
+          this.toastr.error("Oups, une erreur s'est produite", 'Échec', {
+            closeButton: true,
+            positionClass: 'toast-top-right',
+          });
+        },
       })
     );
   }
 
   @Action(Book.Delete)
   delete(
-    { getState, patchState }: StateContext<BookStateModel>,
+    { getState, setState }: StateContext<BookStateModel>,
     { id }: Book.Delete
   ) {
     return this.bookService.deleteBook(id).pipe(
-      tap(() => {
-        const state = getState();
-        const filteredBooks = state.books.filter((book) => book.id !== id);
-        patchState({
-          books: filteredBooks,
-        });
+      tap({
+        next: () => {
+          const state = getState();
+          const filteredBooks = state.books.filter((book) => book.id !== id);
+          setState({
+            books: filteredBooks,
+          });
+          this.toastr.success('Livre supprimé avec succès', 'Succès', {
+            closeButton: true,
+            positionClass: 'toast-top-right',
+          });
+        },
+        error: () => {
+          this.toastr.error("Oups, une erreur s'est produite", 'Échec', {
+            closeButton: true,
+            positionClass: 'toast-top-right',
+          });
+        },
       })
     );
   }
 
   @Action(Book.Update)
   updateBook(
-    { getState, patchState }: StateContext<BookStateModel>,
+    { getState, setState }: StateContext<BookStateModel>,
     { payload }: Book.Update
   ) {
     return this.bookService.editBook(payload).pipe(
-      tap((updatedBook: BookDto) => {
-        const state = getState();
-        const updatedBooks = state.books.map((book) =>
-          book.id === updatedBook.id ? updatedBook : book
-        );
-        patchState({
-          books: updatedBooks,
-        });
+      tap({
+        next: (updatedBook: BookDto) => {
+          const state = getState();
+          const updatedBooks = state.books.map((book) =>
+            book.id === updatedBook.id ? updatedBook : book
+          );
+          setState({
+            books: updatedBooks,
+          });
+          this.toastr.success('Livre mis à jour avec succès', 'Succès', {
+            closeButton: true,
+            positionClass: 'toast-top-right',
+          });
+        },
+        error: () => {
+          this.toastr.error("Oups, une erreur s'est produite", 'Échec', {
+            closeButton: true,
+            positionClass: 'toast-top-right',
+          });
+        },
       })
     );
   }

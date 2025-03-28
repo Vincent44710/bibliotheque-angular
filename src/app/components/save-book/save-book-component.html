@@ -8,7 +8,7 @@
   <form
     (ngSubmit)="submit()"
     [formGroup]="bookForm"
-    ngxsForm="createBookDialog.bookForm"
+    ngxsForm="saveBookDialog.bookForm"
     class="add-book-form"
   >
     <mat-form-field>
@@ -22,7 +22,7 @@
         [errorStateMatcher]="matcher"
       />
       @if (bookForm.get('title')?.hasError('minlength')) {
-      <mat-error>Le titre doit avoir 2 lettres minimum</mat-error>
+        <mat-error>Le titre doit avoir 2 lettres minimum</mat-error>
       }
     </mat-form-field>
 
@@ -37,7 +37,7 @@
         [errorStateMatcher]="matcher"
       />
       @if (bookForm.get('author')?.hasError('minlength')) {
-      <mat-error>Un auteur est requis</mat-error>
+        <mat-error>Un auteur est requis</mat-error>
       }
     </mat-form-field>
     <mat-form-field>
@@ -51,7 +51,7 @@
         [errorStateMatcher]="matcher"
       />
       @if (bookForm.get('year')?.hasError('pattern')) {
-      <mat-error>Mettre 4 chiffres</mat-error>
+        <mat-error>Mettre 4 chiffres</mat-error>
       }
     </mat-form-field>
 
@@ -66,9 +66,9 @@
         [errorStateMatcher]="matcher"
       />
       @if (bookForm.get('picture')?.hasError('pattern')) {
-      <mat-error
-        >L'url doit etre de type (https?://.*.(?:png|jpg|jpeg))
-      </mat-error>
+        <mat-error>
+          L'url doit etre de type (https?://.*.(?:png|jpg|jpeg))
+        </mat-error>
       }
     </mat-form-field>
 
@@ -83,7 +83,7 @@
         [errorStateMatcher]="matcher"
       ></textarea>
       @if (bookForm.get('summary')?.hasError('maxlength')) {
-      <mat-error>500 mots maximums</mat-error>
+        <mat-error>500 mots maximums</mat-error>
       }
     </mat-form-field>
     <div class="action-buttons">

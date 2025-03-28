@@ -16,7 +16,7 @@ import { BookService } from '../../../services/book-service';
 @Injectable()
 export class BookDialogState {
   constructor(
-    private bookDialog: BookDialogService,
+    private bookDialogService: BookDialogService,
     private bookService: BookService
   ) {}
 
@@ -27,10 +27,10 @@ export class BookDialogState {
   ) {
     return this.bookService.getBookById(id).pipe(
       tap((book) => {
-        patchState({ book: book });
+        patchState({ book });
       }),
       tap(() => {
-        this.bookDialog.open();
+        this.bookDialogService.open();
       })
     );
   }
@@ -38,6 +38,6 @@ export class BookDialogState {
   @Action(BookDialog.Close)
   closeDialogBook({ patchState }: StateContext<BookDialogStateModel>) {
     patchState(defaultBookDialogState);
-    this.bookDialog.close();
+    this.bookDialogService.close();
   }
 }

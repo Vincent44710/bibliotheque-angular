@@ -1,7 +1,7 @@
 import { BookDto } from '../../dto/book.dtos';
 
 export namespace Book {
-  export class AllBooks {
+  export class GetAll {
     static readonly type = '[Book] Get All Books';
   }
 
@@ -10,7 +10,7 @@ export namespace Book {
     constructor(public id: number) {}
   }
 
-  export class AddBook {
+  export class Add {
     static readonly type = '[Book] Add Book';
     constructor(public payload: BookDto) {}
   }

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddBookComponent } from '../components/add-book/add-book-component';
+import { SaveBookComponent } from '../components/save-book/save-book-component';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CreateBookDialogService {
+export class SaveBookDialogService {
   constructor(private dialog: MatDialog) {}
 
   open() {
-    this.dialog.open(AddBookComponent);
+    this.dialog.open(SaveBookComponent);
   }
 
   close() {

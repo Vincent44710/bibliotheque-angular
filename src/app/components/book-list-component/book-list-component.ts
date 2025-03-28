@@ -21,8 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BookDialog } from '../../shared/states/book-state-dialog/book-dialog.action';
-import { CreateBookDialog } from '../../shared/states/create-book-state-dialog/create-book-dialog.action';
-import { ToastrService } from 'ngx-toastr';
+import { SaveBookDialog } from '../../shared/states/save-book-state-dialog/save-book-dialog.action';
 
 @Component({
   selector: 'app-book-list-component',
@@ -47,7 +46,7 @@ export class BookListComponent implements OnInit {
   dataSource = computed(() => new MatTableDataSource(this.books()));
   readonly dialog = inject(MatDialog);
 
-  constructor(private store: Store, private toastr: ToastrService) {}
+  constructor(private store: Store) {}
 
   @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -58,25 +57,12 @@ export class BookListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new Book.AllBooks());
+    this.store.dispatch(new Book.GetAll());
   }
 
   deleteBook(id: number) {
-    this.store.dispatch(new Book.Delete(id)).subscribe({
-      next: () => {
-        this.toastr.success('Livre supprimé avec succès', 'Succès', {
-          closeButton: true,
-          positionClass: 'toast-top-right',
-        });
-      },
-      error: () => {
-        this.toastr.error("Oups, une erreur s'est produite", 'Échec', {
-          closeButton: true,
-          positionClass: 'toast-top-right',
-        });
-      },
-    });
-  }
+    this.store.dispatch(new Book.Delete(id))
+  };
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -88,11 +74,11 @@ export class BookListComponent implements OnInit {
   }
 
   displayAddBookDialog() {
-    this.store.dispatch(new CreateBookDialog.Display());
+    this.store.dispatch(new SaveBookDialog.Display());
   }
 
   displayUpdateBookDialog(book: BookDto) {
-    this.store.dispatch(new CreateBookDialog.Display(book, true));
+    this.store.dispatch(new SaveBookDialog.Display(book, true));
   }
 
   private _updatePaginator = effect(() => {

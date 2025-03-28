@@ -1,36 +1,20 @@
 {
   "books": [
     {
-      "id": "5",
-      "title": "Fondation",
+      "title": "Fondationa",
       "author": "Isaac Asimov",
       "year": 1951,
       "picture": "https://covers.openlibrary.org/b/id/5541632-L.jpg",
-      "summary": "L’histoire d’un scientifique qui tente de sauver l’humanité grâce à la psychohistoire."
+      "summary": "L’histoire d’un scientifique qui tente de sauver l’humanité grâce à la psychohistoire.",
+      "id": "5"
     },
     {
-      "id": "6",
       "title": "Dune",
       "author": "Frank Herbert",
       "year": 1965,
       "picture": "https://covers.openlibrary.org/b/id/12583966-L.jpg",
-      "summary": "Une planète désertique au cœur d’une lutte pour le pouvoir et une ressource précieuse."
-    },
-    {
-      "id": "7",
-      "title": "Les Robots",
-      "author": "Isaac Asimov",
-      "year": 1950,
-      "picture": "https://covers.openlibrary.org/b/id/8235261-L.jpg",
-      "summary": "Une collection de nouvelles qui posent les bases des lois de la robotique."
-    },
-    {
-      "id": "8",
-      "title": "Blade Runner",
-      "author": "Philip K. Dick",
-      "year": 1968,
-      "picture": "https://covers.openlibrary.org/b/id/11573400-L.jpg",
-      "summary": "Un chasseur de primes traque des androïdes fugitifs dans un monde post-apocalyptique."
+      "summary": "Une planète désertique au cœur d’une lutte pour le pouvoir et une ressource précieuse.",
+      "id": "6"
     },
     {
       "id": "9",
@@ -71,14 +55,6 @@
       "year": 1961,
       "picture": "https://covers.openlibrary.org/b/id/12465592-L.jpg",
       "summary": "Une planète mystérieuse qui matérialise les pensées et les souvenirs des humains."
-    },
-    {
-      "id": "14",
-      "title": "Le cycle de Tschaï",
-      "author": "Jack Vance",
-      "year": 1968,
-      "picture": "https://covers.openlibrary.org/b/id/10238542-L.jpg",
-      "summary": "Un homme échoué sur une planète étrangère doit naviguer entre civilisations extraterrestres hostiles."
     }
   ]
 }
